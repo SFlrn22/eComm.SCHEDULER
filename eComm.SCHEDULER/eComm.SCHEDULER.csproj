@@ -13,5 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\eComm.APPLICATION\eComm.APPLICATION.csproj" />
+    <ProjectReference Include="..\eComm.PERSISTENCE\eComm.PERSISTENCE.csproj" />
   </ItemGroup>
 </Project>

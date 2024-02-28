@@ -2,5 +2,6 @@
 {
     public interface IOrchestrationService
     {
+        Task<(int, int, int)> OrchestrateAsync();
     }
 }
