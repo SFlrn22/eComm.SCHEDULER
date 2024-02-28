@@ -25,20 +25,24 @@ var columnOptions = new ColumnOptions
     }
 };
 
-var logger = new LoggerConfiguration().WriteTo
-    .MSSqlServer(AesDecryptHelper.Decrypt("supersecretKEYThatIsHardToGuesSS", config.GetSection("ConnectionStrings:DefaultConnection").Value!),
+var logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.MSSqlServer(AesDecryptHelper.Decrypt("supersecretKEYThatIsHardToGuesSS", config.GetSection("ConnectionStrings:DefaultConnection").Value!),
         new MSSqlServerSinkOptions
         {
-            TableName = "SchedulerLogs",
+            TableName = "tbl_SchedulerLogs",
             SchemaName = "dbo",
             AutoCreateSqlTable = true,
         }, columnOptions: columnOptions)
+    .Enrich.FromLogContext()
     .CreateLogger();
 
-builder.Services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
-builder.Services.AddScoped<IDataRepository, DataRepository>();
-builder.Services.AddScoped<IOrchestrationService, OrchestrationService>();
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
+
+builder.Services.AddSingleton<IDbConnectionFactory, DbConnectionFactory>();
+builder.Services.AddSingleton<IDataRepository, DataRepository>();
+builder.Services.AddSingleton<IOrchestrationService, OrchestrationService>();
 
 var host = builder.Build();
-
 host.Run();

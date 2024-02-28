@@ -1,4 +1,5 @@
 using eComm.APPLICATION.Contracts;
+using Serilog.Context;
 
 namespace eComm.SCHEDULER
 {
@@ -20,8 +21,11 @@ namespace eComm.SCHEDULER
                 try
                 {
                     (int productCount, int userCount, int ratingCount) = await _orchestrationService.OrchestrateAsync();
-                    await Task.Delay(10000, stoppingToken);
-                    _logger.LogCritical($"Scheduler finished working at {DateTime.Now} without problems", productCount, userCount, ratingCount);
+                    LogContext.PushProperty("ProductsCount", productCount);
+                    LogContext.PushProperty("UsersCount", userCount);
+                    LogContext.PushProperty("RatingsCount", ratingCount);
+                    _logger.LogInformation($"Scheduler finished working at {DateTime.Now} without problems", productCount, userCount, ratingCount);
+                    //await Task.Delay(10000, stoppingToken);
                 }
                 catch (Exception ex)
                 {
