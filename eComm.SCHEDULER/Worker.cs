@@ -24,7 +24,7 @@ namespace eComm.SCHEDULER
                     LogContext.PushProperty("ProductsCount", productCount);
                     LogContext.PushProperty("UsersCount", userCount);
                     LogContext.PushProperty("RatingsCount", ratingCount);
-                    _logger.LogInformation($"Scheduler finished working at {DateTime.Now} without problems", productCount, userCount, ratingCount);
+                    _logger.LogInformation($"Scheduler finished working at {DateTime.Now} without problems");
                     //await Task.Delay(10000, stoppingToken);
                 }
                 catch (Exception ex)
