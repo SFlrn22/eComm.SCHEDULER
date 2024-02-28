@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Implementations\" />
+    <ProjectReference Include="..\eComm.DOMAIN\eComm.DOMAIN.csproj" />
   </ItemGroup>
 
 </Project>

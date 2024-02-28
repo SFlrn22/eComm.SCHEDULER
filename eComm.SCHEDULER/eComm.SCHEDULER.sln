@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eComm.PERSISTENCE", "..\eCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eComm.APPLICATION", "..\eComm.APPLICATION\eComm.APPLICATION.csproj", "{B44DE1A1-A305-4719-9019-8AF41436C1C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eComm.DOMAIN", "..\eComm.DOMAIN\eComm.DOMAIN.csproj", "{774EE23B-94FA-4200-A593-753F078FC5E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B44DE1A1-A305-4719-9019-8AF41436C1C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B44DE1A1-A305-4719-9019-8AF41436C1C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B44DE1A1-A305-4719-9019-8AF41436C1C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{774EE23B-94FA-4200-A593-753F078FC5E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{774EE23B-94FA-4200-A593-753F078FC5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{774EE23B-94FA-4200-A593-753F078FC5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{774EE23B-94FA-4200-A593-753F078FC5E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
