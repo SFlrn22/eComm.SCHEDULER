@@ -9,7 +9,14 @@ namespace eComm.PERSISTENCE.Implementations
     {
         private readonly IDbConnectionFactory _connectionFactory;
         private readonly string GET_PRODUCTS = "SELECT * FROM tbl_Products";
-        private readonly string GET_USERS = "SELECT * FROM tbl_Users";
+        private readonly string GET_USERS = @"SELECT ID as UserId
+                                              ,Firstname
+                                              ,Lastname
+                                              ,Username
+                                              ,Password
+                                              ,Email
+                                              ,Country
+                                          FROM [dbo].[tbl_Users]";
         private readonly string GET_RATINGS = "SELECT * FROM tbl_Ratings";
         public DataRepository(IDbConnectionFactory connectionFactory)
         {
